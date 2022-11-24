@@ -15,19 +15,19 @@ namespace Assets.Scripts.UI
 
         private void Awake()
         {
-            _health.OnHealthDamaged += HealthBar_OnHealthDamaged;
-            _health.OnHealthHealed += HealthBar_OnHealthHealed;
+            _health.OnDamaged += HealthSystem_OnDamaged;
+            _health.OnHealed += HealthSystem_OnHealed;
 
             _damageImage.fillAmount = _healthImage.fillAmount;
         }
 
-        private void HealthBar_OnHealthDamaged(float percentage)
+        private void HealthSystem_OnDamaged(float percentage)
         {
             ResetDamageTimer();
             ChangeImageToPercentage(percentage);
         }
 
-        private void HealthBar_OnHealthHealed(float percentage)
+        private void HealthSystem_OnHealed(float percentage)
         {
             ChangeImageToPercentage(percentage);
             _damageImage.fillAmount = _healthImage.fillAmount;

@@ -2,6 +2,6 @@ namespace Assets.Scripts.Interfaces
 {
     public interface IDamageable
     {
-        void Damage(int amount);
+        void Damage(float amount);
     }
 }

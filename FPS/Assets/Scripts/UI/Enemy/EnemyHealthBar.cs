@@ -12,17 +12,17 @@ namespace Assets.Scripts.UI
 
         private void Awake()
         {
-            health.OnHealthChanged += HealthBar_OnHealthChanged;
-            health.OnDeath += Health_OnDeath;
+            health.OnCurrentHealthChanged += HealthBar_OnCurrentHealthChanged;
+            health.OnDead += Health_OnDead;
             damageImage.fillAmount = healthImage.fillAmount;
         }
 
-        private void Health_OnDeath()
+        private void Health_OnDead()
         {
             gameObject.SetActive(false);
         }
 
-        private void HealthBar_OnHealthChanged(float percentage)
+        private void HealthBar_OnCurrentHealthChanged(float percentage, float currentHealth)
         {
             ChangeImageToPercentage(percentage);
         }

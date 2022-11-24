@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     public Vector2 look;
     public bool jump;
     public bool sprint;
+    public bool shoot;
 
     [Header("Movement Settings")]
     public bool analogMovement;
@@ -29,6 +30,11 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void OnShoot(InputValue value)
+    {
+        ShootInput(value.isPressed);
+    }
+
     public void OnJump(InputValue value)
     {
         JumpInput(value.isPressed);
@@ -47,6 +53,11 @@ public class InputManager : MonoBehaviour
     public void LookInput(Vector2 newLookDirection)
     {
         look = newLookDirection;
+    }
+
+    public void ShootInput(bool newShootState)
+    {
+        shoot = newShootState;
     }
 
     public void JumpInput(bool newJumpState)

@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
 
     private const float _threshold = 0.01f;
 
+    private Gun _gun;
+
     private void Awake()
     {
         // get a reference to our main camera
@@ -70,6 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
+
+        _gun = GetComponentInChildren<Gun>();
     }
 
     private void Start()
@@ -87,6 +91,7 @@ public class PlayerController : MonoBehaviour
         JumpAndGravity();
         GroundedCheck();
         Move();
+        Shoot();
     }
 
     private void LateUpdate()
@@ -212,6 +217,14 @@ public class PlayerController : MonoBehaviour
         if (_verticalVelocity < _terminalVelocity)
         {
             _verticalVelocity += Gravity * Time.deltaTime;
+        }
+    }
+
+    private void Shoot()
+    {
+        if (_input.shoot)
+        {
+            _gun.HandleShooting();
         }
     }
 

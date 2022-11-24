@@ -1,5 +1,5 @@
 {
-    "name": "Input Controls",
+    "name": "PlayerInput",
     "maps": [
         {
             "name": "Player",
@@ -36,6 +36,15 @@
                     "name": "Sprint",
                     "type": "PassThrough",
                     "id": "962d8c4d-91d8-4d0c-8ad2-f8db60d13252",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "PassThrough",
+                    "id": "72974b66-0793-49ab-ad86-15693e7f9c46",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -216,6 +225,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1ebd3d5-357c-4d5c-beb9-f2eab5197d81",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

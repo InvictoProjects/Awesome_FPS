@@ -10,6 +10,7 @@ namespace Assets.Scripts.UI
         {
             cam = Camera.main.transform;
         }
+
         void LateUpdate()
         {
             transform.LookAt(transform.position + cam.forward);
