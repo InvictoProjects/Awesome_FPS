@@ -13,7 +13,15 @@ namespace Assets.Scripts.Enemy
 
         private void PlayHitAnimation()
         {
-            
+            SkinnedMeshRenderer[] skinnedMeshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+            foreach (var skinnedMesh in skinnedMeshes)
+            {
+                skinnedMesh.material.color = Color.white;
+            }
+
+            //SkinnedMeshRenderer skinnedMeshMain = GetComponentInChildren<SkinnedMeshRenderer>();
+            //skinnedMeshMain.material.color = Color.white;
         }
 
         private void Knockback()

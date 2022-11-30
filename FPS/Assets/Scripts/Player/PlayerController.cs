@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
 
     private Gun _gun;
 
+    public Gun Gun { get => _gun; set => _gun = value; }
+
     private void Awake()
     {
         // get a reference to our main camera
@@ -73,7 +75,7 @@ public class PlayerController : MonoBehaviour
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
 
-        _gun = GetComponentInChildren<Gun>();
+        Gun = GetComponentInChildren<Gun>();
     }
 
     private void Start()
@@ -224,7 +226,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_input.shoot)
         {
-            _gun.HandleShooting();
+            Gun.HandleShooting();
         }
     }
 
