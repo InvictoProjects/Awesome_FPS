@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AttackState : State
 {
-    public AttackState(StateMachine stateMachine, EnemyController controller)
-        : base(stateMachine, controller) { }
+    public AttackState(StateMachine stateMachine, Animator animator, EnemyController controller)
+        : base(stateMachine, animator, controller) { }
 
     public override void Enter()
     {
@@ -35,6 +35,6 @@ public class AttackState : State
 
     private void Attack()
     {
-        Debug.Log("Attack!");
+        _animator.SetTrigger("Attack");
     }
 }

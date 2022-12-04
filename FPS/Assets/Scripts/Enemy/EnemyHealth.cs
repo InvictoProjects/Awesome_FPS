@@ -4,6 +4,13 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyHealth : HealthSystem
     {
+        private Animator _animator;
+
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
         public override void Damage(float amount)
         {
             base.Damage(amount);
@@ -13,15 +20,7 @@ namespace Assets.Scripts.Enemy
 
         private void PlayHitAnimation()
         {
-            SkinnedMeshRenderer[] skinnedMeshes = GetComponentsInChildren<SkinnedMeshRenderer>();
-
-            foreach (var skinnedMesh in skinnedMeshes)
-            {
-                skinnedMesh.material.color = Color.white;
-            }
-
-            //SkinnedMeshRenderer skinnedMeshMain = GetComponentInChildren<SkinnedMeshRenderer>();
-            //skinnedMeshMain.material.color = Color.white;
+            _animator.SetTrigger("Impact");
         }
 
         private void Knockback()
@@ -31,6 +30,7 @@ namespace Assets.Scripts.Enemy
 
         public override void Die()
         {
+            _animator.SetTrigger("Death");
             base.Die();
             Destroy(gameObject);
         }
