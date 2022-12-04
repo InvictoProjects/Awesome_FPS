@@ -1,4 +1,5 @@
 using Assets.Scripts.Interfaces;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,17 +8,20 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _damage = 20;
     [SerializeField] private float _range = 100;
 
-    [SerializeField] private float _maxAmmo;
-    [SerializeField] private float _currentAmmo;
+    [SerializeField] private int _maxAmmo;
+    [SerializeField] private int _currentAmmo;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _reloadTime;
     [SerializeField] private bool _isReloading;
+    public event Action<int> OnAmmoChanged;
 
     private float _nextTimeToFire;
 
     private Transform _cam;
     private Animator _animator;
     [SerializeField] private ParticleSystem _muzzleFlash;
+
+    public int MaxAmmo { get => _maxAmmo; set => _maxAmmo = value; }
 
     private void Awake()
     {
@@ -30,6 +34,7 @@ public class Gun : MonoBehaviour
     private void OnEnable()
     {
         _isReloading = false;
+        OnAmmoChanged?.Invoke(_currentAmmo);
 
         _animator.SetBool("isReloading", false);
     }
@@ -64,12 +69,14 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         _currentAmmo = _maxAmmo;
+        OnAmmoChanged?.Invoke(_currentAmmo);
         _isReloading = false;
     }
 
     private void Shoot()
     {
         _currentAmmo -= 1;
+        OnAmmoChanged?.Invoke(_currentAmmo);
 
         _muzzleFlash.Play();
 
