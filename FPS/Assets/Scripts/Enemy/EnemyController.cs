@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private ChaseState _chaseState;
     private AttackState _attackState;
     private NavMeshAgent _agent;
+    private Animator _animator;
 
     private GameObject _player;
 
@@ -37,11 +38,12 @@ public class EnemyController : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
         _stateMachine = new StateMachine();
 
         _patrolState = new PatrolState(_stateMachine, this);
         _chaseState = new ChaseState(_stateMachine, this);
-        _attackState = new AttackState(_stateMachine, this);
+        _attackState = new AttackState(_stateMachine, _animator, this);
 
         _stateMachine.Initialize(_patrolState);
     }
@@ -49,5 +51,6 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         _stateMachine.CurrentState.Update();
+        _animator.SetFloat("Speed", _agent.velocity.magnitude);
     }
 }
