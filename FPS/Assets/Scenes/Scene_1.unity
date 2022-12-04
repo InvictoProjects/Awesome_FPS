@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c8cd26d94a0fcae489df6dda261d3300,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -387,18 +388,6 @@ Transform:
   m_Father: {fileID: 502161799}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1154576703 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4824364438004896446, guid: c1d1adcde5ded2747b3a4ecdaf680187,
-    type: 3}
-  m_PrefabInstance: {fileID: 3740133377442689239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd58f938c2da18249a0e169397d77cea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1358669817
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,11 +659,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1823214689392030252, guid: 21568292ad79e9e49a422404c2ca2a4a,
-        type: 3}
-      propertyPath: _health
-      value: 
-      objectReference: {fileID: 1154576703}
     - target: {fileID: 1823214690203780249, guid: 21568292ad79e9e49a422404c2ca2a4a,
         type: 3}
       propertyPath: m_RootOrder

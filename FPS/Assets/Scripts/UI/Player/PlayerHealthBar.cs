@@ -8,13 +8,15 @@ namespace Assets.Scripts.UI
     {
         [SerializeField] private Image _healthImage;
         [SerializeField] private Image _damageImage;
-        [SerializeField] private PlayerHealth _health;
+        private PlayerHealth _health;
 
         private const float _damageTimerMax = 1f;
         private float _damageTimer;
 
         private void Awake()
         {
+            var player = GameObject.FindGameObjectWithTag("Player");
+            _health = player.GetComponent<PlayerHealth>();
             _health.OnDamaged += HealthSystem_OnDamaged;
             _health.OnHealed += HealthSystem_OnHealed;
 
