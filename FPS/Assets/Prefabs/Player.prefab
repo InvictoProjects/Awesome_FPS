@@ -85,7 +85,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8022225519337956236
 Transform:
   m_ObjectHideFlags: 0
@@ -5073,7 +5073,7 @@ Transform:
   - {fileID: 1459106458193455433}
   - {fileID: 3740133378211403859}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &2415218220546835868
 CharacterController:
@@ -5238,7 +5238,7 @@ MonoBehaviour:
   _range: 100
   _maxAmmo: 30
   _currentAmmo: 0
-  _fireRate: 10
+  _fireRate: 7
   _reloadTime: 3
   _isReloading: 0
   _muzzleFlash: {fileID: 2736113186816919282}
@@ -5273,7 +5273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6143385695587513846
 Transform:
   m_ObjectHideFlags: 0
@@ -20223,7 +20223,7 @@ MonoBehaviour:
   _range: 200
   _maxAmmo: 20
   _currentAmmo: 0
-  _fireRate: 25
+  _fireRate: 10
   _reloadTime: 1.5
   _isReloading: 0
   _muzzleFlash: {fileID: 1749071752934811104}
