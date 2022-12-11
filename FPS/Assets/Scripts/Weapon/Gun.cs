@@ -79,6 +79,7 @@ public class Gun : MonoBehaviour
         OnAmmoChanged?.Invoke(_currentAmmo);
 
         _muzzleFlash.Play();
+        ShootBullet();
 
         if (Physics.Raycast(_cam.position, _cam.forward, out RaycastHit hit, _range))
         {
@@ -87,5 +88,20 @@ public class Gun : MonoBehaviour
                 damageable.Damage(_damage);
             }
         }
+    }
+
+    private void ShootBullet()
+    {
+        GameObject bullet = ObjectPool.objectPool.GetPooledObject();
+        bullet.transform.position = _muzzleFlash.transform.position;
+        bullet.transform.rotation = _muzzleFlash.transform.rotation;
+        bullet.SetActive(true);
+
+        StartCoroutine(Dissappear(bullet));
+    }
+    private IEnumerator Dissappear(GameObject bullet)
+    {
+        yield return new WaitForSeconds(0.25f);
+        bullet.SetActive(false);
     }
 }
