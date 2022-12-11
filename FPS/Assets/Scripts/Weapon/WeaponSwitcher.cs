@@ -3,13 +3,9 @@ using UnityEngine;
 public class WeaponSwitcher : MonoBehaviour
 {
     [SerializeField] private int _selectedItem;
-    
-    private PlayerController _playerController;
 
     private void Start()
     {
-        _playerController = GetComponentInParent<PlayerController>();
-
         SelectItem();
     }
 
@@ -55,7 +51,6 @@ public class WeaponSwitcher : MonoBehaviour
 
             if (i == _selectedItem)
             {
-                _playerController.Gun = item.gameObject.GetComponent<Gun>();
                 item.gameObject.SetActive(true);
             }
             else

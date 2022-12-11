@@ -15,7 +15,7 @@ public class Ammo : MonoBehaviour
 
         for (int i = 0; i < switcher.transform.childCount; i++)
         {
-            Gun gun = switcher.transform.GetChild(i).GetComponent<Gun>();
+            RangedWeapon gun = switcher.transform.GetChild(i).GetComponent<RangedWeapon>();
             gun.OnAmmoChanged += Ammo_OnChanged;
         }
     }

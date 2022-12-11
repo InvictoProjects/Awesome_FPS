@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class RangedWeapon : MonoBehaviour
 {
     [SerializeField] private int _damage = 20;
     [SerializeField] private float _range = 100;
@@ -19,6 +19,7 @@ public class Gun : MonoBehaviour
 
     private Transform _cam;
     private Animator _animator;
+    private InputManager _input;
     [SerializeField] private ParticleSystem _muzzleFlash;
 
     public int MaxAmmo { get => _maxAmmo; set => _maxAmmo = value; }
@@ -27,8 +28,17 @@ public class Gun : MonoBehaviour
     {
         _cam = Camera.main.transform;
         _animator = GetComponentInParent<Animator>();
+        _input = GetComponentInParent<InputManager>();
 
         _currentAmmo = _maxAmmo;
+    }
+
+    private void Update()
+    {
+        if (_input.shoot)
+        {
+            HandleShooting();
+        }
     }
 
     private void OnEnable()
