@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolSpeed: 3.5
-  _chaseSpeed: 10
+  _chaseSpeed: 7
   _attackRange: 2
   _minVisionRange: 10
   _maxVisionRange: 30
