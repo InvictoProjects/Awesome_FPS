@@ -118,7 +118,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -719,21 +719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 3280849752816926611, guid: 21568292ad79e9e49a422404c2ca2a4a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3280849752816926611, guid: 21568292ad79e9e49a422404c2ca2a4a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3280849752816926611, guid: 21568292ad79e9e49a422404c2ca2a4a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 21568292ad79e9e49a422404c2ca2a4a, type: 3}
@@ -745,16 +730,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2445266393045876042, guid: cec5840d8fb56a44c9f5bfe7e4990027,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2445266393045876042, guid: cec5840d8fb56a44c9f5bfe7e4990027,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3712737530792724548, guid: cec5840d8fb56a44c9f5bfe7e4990027,
         type: 3}
       propertyPath: _patrolPoints.Array.data[0]
@@ -835,10 +810,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: cec5840d8fb56a44c9f5bfe7e4990027, type: 3}
 --- !u!1001 &3740133377442689239
@@ -909,11 +881,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9168949555330612704, guid: c1d1adcde5ded2747b3a4ecdaf680187,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d1adcde5ded2747b3a4ecdaf680187, type: 3}
@@ -938,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 4192895753301302236, guid: edd39c2286365a5489fb99993961452f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4192895753301302236, guid: edd39c2286365a5489fb99993961452f,
         type: 3}
@@ -1014,7 +981,7 @@ PrefabInstance:
     - target: {fileID: 6088098936167260274, guid: e3685f36ec98b85448089dcd188e947d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6088098936167260274, guid: e3685f36ec98b85448089dcd188e947d,
         type: 3}
