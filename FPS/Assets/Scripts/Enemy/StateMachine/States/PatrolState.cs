@@ -11,13 +11,11 @@ public class PatrolState : State
     public override void Enter()
     {
         _controller.Agent.destination = _controller.PatrolPoints[_pointIndex].position;
-        _controller.Agent.autoBraking = false;
         _controller.Agent.speed = _controller.PatrolSpeed;
     }
 
     public override void Exit()
     {
-        _controller.Agent.autoBraking = true;
         _controller.Agent.ResetPath();
     }
 

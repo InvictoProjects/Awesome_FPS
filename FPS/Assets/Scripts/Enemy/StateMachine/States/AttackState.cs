@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackState : State
@@ -14,6 +15,7 @@ public class AttackState : State
     public override void Exit()
     {
         _controller.Agent.isStopped = false;
+        _animator.ResetTrigger("Attack");
     }
 
     public override void Update()
@@ -25,11 +27,15 @@ public class AttackState : State
 
     private void HandleTransitions()
     {
-        float distanceToPlayer = Vector3.Distance(_controller.transform.position, _controller.PlayerPosition);
-
-        if (distanceToPlayer > _controller.AttackRange)
+        if (_animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack"
+            && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.99f)
         {
-            _stateMachine.ChangeState(_controller.ChaseState);
+            float distanceToPlayer = Vector3.Distance(_controller.transform.position, _controller.PlayerPosition);
+
+            if (distanceToPlayer > _controller.AttackRange)
+            {
+                _stateMachine.ChangeState(_controller.ChaseState);
+            }
         }
     }
 
