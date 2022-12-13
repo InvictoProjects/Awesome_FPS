@@ -4,11 +4,11 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyHealth : HealthSystem
     {
-        private Animator _animator;
+        private EnemyController _controller;
 
         private void Start()
         {
-            _animator = GetComponent<Animator>();
+            _controller = GetComponent<EnemyController>();
         }
 
         public override void Damage(float amount)
@@ -20,7 +20,10 @@ namespace Assets.Scripts.Enemy
 
         private void PlayHitAnimation()
         {
-            _animator.SetTrigger("Impact");
+            if (_controller.StateMachine.CurrentState != _controller.DeathState)
+            {
+                _controller.StateMachine.ChangeState(_controller.HitState);
+            }
         }
 
         private void Knockback()
@@ -30,9 +33,9 @@ namespace Assets.Scripts.Enemy
 
         public override void Die()
         {
-            _animator.SetTrigger("Death");
             base.Die();
-            Destroy(gameObject);
+            _controller.StateMachine.ChangeState(_controller.DeathState);
+            Destroy(gameObject, 5f);
         }
     }
 }
