@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFly : MonoBehaviour
 {
-    public float speed = 2f;
+    [SerializeField] public float speed = 2f;
 
     // Update is called once per frame
     void Update()
