@@ -14,14 +14,19 @@ public class EnemyController : MonoBehaviour
     private PatrolState _patrolState;
     private ChaseState _chaseState;
     private AttackState _attackState;
+    private DeathState _deathState;
+    private HitState _hitState;
     private NavMeshAgent _agent;
     private Animator _animator;
 
     private GameObject _player;
 
+    public StateMachine StateMachine { get => _stateMachine; }
     public PatrolState PatrolState { get => _patrolState; }
     public ChaseState ChaseState { get => _chaseState; }
     public AttackState AttackState { get => _attackState; }
+    public HitState HitState { get => _hitState; }
+    public DeathState DeathState { get => _deathState; }
 
     public NavMeshAgent Agent { get => _agent; }
 
@@ -44,6 +49,8 @@ public class EnemyController : MonoBehaviour
         _patrolState = new PatrolState(_stateMachine, this);
         _chaseState = new ChaseState(_stateMachine, this);
         _attackState = new AttackState(_stateMachine, _animator, this);
+        _hitState = new HitState(_stateMachine, _animator, this);
+        _deathState = new DeathState(_stateMachine, _animator, this);
 
         _stateMachine.Initialize(_patrolState);
     }
