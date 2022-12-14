@@ -8,7 +8,6 @@ public class DeathState : State
 
     public override void Enter()
     {
-        Debug.Log("Enter");
         _controller.Agent.destination = _controller.transform.position;
         _controller.Agent.isStopped = true;
     }
@@ -19,7 +18,6 @@ public class DeathState : State
 
     public override void Update()
     {
-        Debug.Log("Die");
         Die();
     }
 
